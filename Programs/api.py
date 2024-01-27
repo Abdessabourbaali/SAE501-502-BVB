@@ -236,11 +236,7 @@ def get_stats_dhcp_types():
 def get_timestamp_asc():
     conn = get_db_connection()
     cursor = conn.cursor()
-    order_by = request.args.get('order_by', 'asc')
-    if order_by.lower() == 'desc':
-        cursor.execute('SELECT * FROM dhcp_leases ORDER BY datetime(timestamp) DESC')
-    else:
-        cursor.execute('SELECT * FROM dhcp_leases ORDER BY datetime(timestamp) ASC')
+    cursor.execute('SELECT * FROM dhcp_leases ORDER BY datetime(timestamp) ASC')
     timestamps = cursor.fetchall()
     conn.close()
     xml_data = convert_to_xml(timestamps)

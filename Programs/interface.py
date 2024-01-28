@@ -184,7 +184,7 @@ class App:
             self.tree.delete(item)
 
         # Récupération API 
-        api_url = "http://192.168.1.11:5000/api"               # Lien de l'API à modifier selon votre IP
+        api_url = "http://10.202.7.1:5000/api"               # Lien de l'API à modifier selon votre IP
         response = requests.get(api_url)
         
         if response.status_code == 200:
@@ -268,7 +268,7 @@ class App:
         if hasattr(self, 'graphique_frame'): # Graphique
             self.graphique_frame.destroy()
     # Récupération API 
-        api_url = "http://192.168.1.11:5000/api"
+        api_url = "http://10.202.7.1:5000/api"
         response = requests.get(api_url)
     
         if response.status_code == 200:

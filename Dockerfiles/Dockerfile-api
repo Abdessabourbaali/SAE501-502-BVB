@@ -1,0 +1,26 @@
+# Utilisez l'image officielle Python comme base
+FROM python:3.9
+
+# Mettez à jour le système et installez les dépendances
+RUN apt-get update && apt-get install -y libpcap-dev && rm -rf /var/lib/apt/lists/*
+
+# Copiez le code de votre script dans le conteneur
+COPY Programs/sniffer.py /app/sniffer.py
+
+# Copiez le code de votre API dans le conteneur
+COPY Programs/api.py /app/api.py
+
+# Définissez le répertoire de travail
+WORKDIR /app
+
+# Copiez le fichier des dépendances Python
+COPY requirements.txt /app/requirements.txt
+
+# Installez les dépendances Python
+RUN pip --no-cache-dir install -r requirements.txt
+
+# Exposez le port sur lequel l'API va écouter
+EXPOSE 5000
+
+# Exécutez le script de capture en arrière-plan et ensuite l'API
+CMD ["sh", "-c", "python3 sniffer.py & python3 api.py"]

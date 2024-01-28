@@ -146,7 +146,7 @@ Les chemins complets (`context` et `dockerfile`) dans le fichier docker-compose 
 
 ### Configuration du fichier interface.py
 
-Ensuite, il faut modifier dans le programme `interface.py` au niveau des lignes 184 et 280 l'URL de l'API car l'interface graphique est directement connecté à l'API pour la récupération des données.
+Ensuite, il faut modifier dans le programme `interface.py` au niveau des lignes 187 et 271 l'URL de l'API car l'interface graphique est directement connecté à l'API pour la récupération des données.
 
 L'adresse IP à spécifier sur l'URL est celui du docker qui fait tourner l'API qui à la même adresse IP que votre machine hôte. Si jamais vous ne la connaissez pas, tapez la commande `ip a` sur votre terminal de commande.
 
